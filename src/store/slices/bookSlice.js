@@ -9,6 +9,7 @@ const booksSlice = createSlice({
     [{title:'t1',
     author:'auth1',
     rating:5,
+    id:'1'
   }]
 
   ,
@@ -26,8 +27,12 @@ const booksSlice = createSlice({
       console.log('state',state)
   },
     deleteBook(state, action) {
-      return state.filter((book) => book.id !== action.payload.id);
-    }
+      const index = state.findIndex((book) => book.id === action.payload.id);
+      if (index > -1) {
+          state.splice(index, 1);
+      }
+      return state;
+      },    
   
     //  addBook(state, action) {
     //   state.books.push(action.payload);

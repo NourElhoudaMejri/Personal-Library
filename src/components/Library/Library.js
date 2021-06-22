@@ -10,7 +10,7 @@ const deleteBookHandler = (id) => {
 }
 
 const bookTable = books.map((book) => (
-  <tr>
+  <tr key={book.id}>
     <td>{book.title}</td>
     <td>{book.author}</td>
     <td>{book.rating}</td>
@@ -35,7 +35,7 @@ return (
       </tr>
       {bookTable}
      {/* { books.map((book) => (
-  <tr>
+  <tr key={book.id}>
     <td>{book.title}</td>
     <td>{book.author}</td>
     <td>{book.rating}</td>
